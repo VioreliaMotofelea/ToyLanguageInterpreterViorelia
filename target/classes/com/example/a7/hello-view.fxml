@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.example.a7.HelloController"
+          alignment="CENTER" hgap="15" vgap="15"
+          style="-fx-background-color: #e8f4fa;"
+          prefHeight="800.0" prefWidth="1200.0">
+  <children>
+    <!-- Header Section -->
+    <HBox spacing="20" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="3"
+          style="-fx-background-color: #004d99; -fx-padding: 10px; -fx-border-radius: 10px;">
+      <children>
+        <Label fx:id="program_states_counter" text="Number of Program States: 0"
+               style="-fx-font-size: 18px; -fx-text-fill: white;" />
+        <Button fx:id="execute_button" text="Execute Step" onAction="#execute_one_step_handler"
+                style="-fx-background-color: #f4511e; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px;" />
+      </children>
+    </HBox>
+
+    <!-- Left Section: Program IDs and Execution Stack -->
+    <VBox spacing="15" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-background-color: #ffcccb; -fx-padding: 10px; -fx-border-radius: 10px;">
+      <children>
+        <Label text="Program IDs" style="-fx-font-size: 16px; -fx-text-fill: #333;" />
+        <ListView fx:id="program_id_view" prefHeight="150.0" prefWidth="200.0"
+                  style="-fx-border-color: #e57373; -fx-border-radius: 5px; -fx-background-color: #fffaf0;" />
+        <Label text="Execution Stack" style="-fx-font-size: 16px; -fx-text-fill: #333;" />
+        <ListView fx:id="execution_stack_view" prefHeight="300.0" prefWidth="200.0"
+                  style="-fx-border-color: #e57373; -fx-border-radius: 5px; -fx-background-color: #fffaf0;" />
+      </children>
+    </VBox>
+
+    <!-- Center Section: Symbol Table -->
+    <VBox spacing="15" GridPane.columnIndex="1" GridPane.rowIndex="1" style="-fx-background-color: #d1c4e9; -fx-padding: 10px; -fx-border-radius: 10px;">
+      <children>
+        <Label text="Symbol Table" style="-fx-font-size: 16px; -fx-text-fill: #333;" />
+        <TableView fx:id="symbol_table_view" prefHeight="300.0" prefWidth="350.0"
+                   style="-fx-border-color: #9575cd; -fx-border-radius: 5px; -fx-background-color: #ede7f6;">
+          <columns>
+            <TableColumn fx:id="symbol_table_names" text="Variable Name" />
+            <TableColumn fx:id="symbol_table_values" text="Value" />
+          </columns>
+        </TableView>
+      </children>
+    </VBox>
+
+    <!-- Right Section: Heap Table -->
+    <VBox spacing="15" GridPane.columnIndex="2" GridPane.rowIndex="1" style="-fx-background-color: #b2ebf2; -fx-padding: 10px; -fx-border-radius: 10px;">
+      <children>
+        <Label text="Heap Table" style="-fx-font-size: 16px; -fx-text-fill: #333;" />
+        <TableView fx:id="heap_table_view" prefHeight="300.0" prefWidth="350.0"
+                   style="-fx-border-color: #4dd0e1; -fx-border-radius: 5px; -fx-background-color: #e0f7fa;">
+          <columns>
+            <TableColumn fx:id="heap_table_addresses" text="Address" />
+            <TableColumn fx:id="heap_table_values" text="Value" />
+          </columns>
+        </TableView>
+      </children>
+    </VBox>
+
+    <!-- Bottom Section: Output and File Table -->
+    <HBox spacing="20" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="3"
+          style="-fx-background-color: #c8e6c9; -fx-padding: 10px; -fx-border-radius: 10px;">
+      <children>
+
+        <VBox spacing="15">
+          <children>
+            <Label text="Output" style="-fx-font-size: 16px; -fx-text-fill: #333;" />
+            <ListView fx:id="output_view" prefHeight="150.0" prefWidth="250.0"
+                      style="-fx-border-color: #81c784; -fx-border-radius: 5px; -fx-background-color: #f1f8e9;" />
+          </children>
+        </VBox>
+
+        <VBox spacing="15">
+          <children>
+            <Label text="File Table" style="-fx-font-size: 16px; -fx-text-fill: #333;" />
+            <ListView fx:id="file_table_view" prefHeight="150.0" prefWidth="250.0"
+                      style="-fx-border-color: #81c784; -fx-border-radius: 5px; -fx-background-color: #f1f8e9;" />
+          </children>
+        </VBox>
+
+        <VBox spacing="15" GridPane.columnIndex="2" GridPane.rowIndex="1" style="-fx-background-color: #b2ebf2; -fx-padding: 10px; -fx-border-radius: 10px;">
+          <children>
+            <Label text="Barrier Table" style="-fx-font-size: 16px; -fx-text-fill: #333;" />
+            <TableView fx:id="barrier_table_view" prefHeight="300.0" prefWidth="350.0"
+                       style="-fx-border-color: #4dd0e1; -fx-border-radius: 5px; -fx-background-color: #e0f7fa;">
+              <columns>
+                <TableColumn fx:id="barrier_table_index_column" text="Index" />
+                <TableColumn fx:id="barrier_table_value_column" text="Value" />
+                <TableColumn fx:id="barrier_table_list_column" text="List" />
+              </columns>
+            </TableView>
+          </children>
+        </VBox>
+
+      </children>
+    </HBox>
+  </children>
+</GridPane>

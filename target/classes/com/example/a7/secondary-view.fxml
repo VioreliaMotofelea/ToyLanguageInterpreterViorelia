@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.example.a7.SecondaryController"
+          alignment="CENTER" hgap="15" vgap="15"
+          style="-fx-background-color: #fef3bd;"
+          prefHeight="650.0" prefWidth="800.0">
+    <children>
+        <!-- Programs List Section -->
+        <VBox spacing="20" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"
+              style="-fx-background-color: #ffecb3; -fx-padding: 10px; -fx-border-radius: 10px;">
+            <children>
+                <ListView fx:id="select_programs_list_view" prefHeight="400.0" prefWidth="700.0"
+                          style="-fx-border-color: #ffe082; -fx-border-radius: 5px; -fx-background-color: #fff3e0;" />
+            </children>
+        </VBox>
+
+        <!-- Button Section -->
+        <HBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2"
+              style="-fx-padding: 10px;">
+            <children>
+                <Button fx:id="select_button" text="Select Program" onAction="#select_program" prefHeight="50.0" prefWidth="200.0"
+                        style="-fx-background-color: #ff5722; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px;" />
+            </children>
+        </HBox>
+    </children>
+</GridPane>
